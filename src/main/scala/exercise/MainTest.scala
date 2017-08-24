@@ -1,5 +1,7 @@
 package exercise
 
+import java.io.InputStream
+
 /**
   * Created by BG244210 on 23/08/2017.
   */
@@ -40,6 +42,9 @@ object MainTest {
 
   def main(args: Array[String]) {
 //    test1();
-    test2()
+//    test2()
+    val  path = MainTest.getClass.getClassLoader.getResource("123.txt").getPath
+    println(path)
+
   }
 }
