@@ -8,6 +8,7 @@ resolvers += Resolver.mavenLocal
 
 libraryDependencies ++= Seq(
   "org.apache.commons" % "commons-lang3" % "3.4" ,
-  "com.best.v8" % "v8-biz-core" % "1.2.7"
+  "com.best.v8" % "v8-biz-core" % "1.2.7",
+  "org.scala-lang" % "scala-actors" % "2.10.6"
 
 )
