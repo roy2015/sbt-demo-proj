@@ -1,5 +1,6 @@
 package exercise.wordcount
 
+import java.io.{File, InputStream}
 import java.util.concurrent.TimeUnit
 
 import scala.actors.{Actor, Future}
@@ -19,7 +20,10 @@ class WorkCountWorker extends Actor {
     loop {
       react {
         case WorkCountTask(filePath) => {
-          val content = Source.fromFile(getClass.getClassLoader.getResource(filePath).getPath()).mkString
+
+          val content =Source.fromInputStream(this.getClass.getResourceAsStream("/" + filePath)).mkString
+
+//          val content = Source.fromFile(this.getClass.getResource("/" +filePath).getPath()).mkString
           val arryStr = content.split("\r\n")
           val map = arryStr.flatMap(_.split(" ")).map((_, 1)).groupBy(_._1).mapValues( x => x.foldLeft(0)((a,b) => a + b._2))
           sender ! new WorkCountResult( map )
