@@ -15,6 +15,5 @@ libraryDependencies ++= Seq(
 //  "com.eed3si9n" %% "sbt-assembly" % "0.13.0"
 )
 
-
-
 mainClass in assembly := Some( "exercise.akka.Worker")
+

@@ -21,7 +21,7 @@ class WorkCountWorker extends Actor {
       react {
         case WorkCountTask(filePath) => {
 
-          val content =Source.fromInputStream(this.getClass.getResourceAsStream("/" + filePath)).mkString
+          val content = Source.fromInputStream(this.getClass.getResourceAsStream("/" + filePath)).mkString
 
 //          val content = Source.fromFile(this.getClass.getResource("/" +filePath).getPath()).mkString
           val arryStr = content.split("\r\n")
