@@ -58,9 +58,11 @@ object MainTest {
     println( new File("123").read("456.txt") )
   }
 
+  //隐式参数(可不传，但必须有隐式的转换存在，如果没有就必须传)
   def test5() = {
     import FrenchPunctuation.delimeter
     println( FrenchPunctuation.quoto("Bonjour le monde") )
+    println( FrenchPunctuation.quoto("Bonjour le monde")(Delimeter("<",">")) )
   }
 
   def test6[T] (a: T, b: T)(implicit order:T => Ordered[T]) ={
@@ -74,17 +76,22 @@ object MainTest {
     }
   }
 
+  def test7 (): Unit = {
+    val kk = List(1,2,3).map(x => List(0,0).::(x))
+    println(kk)
+
+    /*val k:Int = 1
+    println( k.until(7) )*/
+  }
+
   def main(args: Array[String]) {
 //    test1()
 //    test2()
 //    test3()
 //    test4()
-//    test5()
-    test6(11,2)
+    test5()
+//    test6(11,2)
 
-
-    /*val k:Int = 1
-    println( k.until(7) )*/
   }
 
 }
